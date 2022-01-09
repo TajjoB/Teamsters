@@ -1,0 +1,77 @@
+<%# New homepage, old homepage at views/home/index.html.erb%>
+
+<% if user_signed_in? %>
+
+  <div class="card">
+    <div class="card-header bg-success text-light">
+      <h1>Colleagues</h1>
+    </div>
+    <div class="card-body">
+      
+      <table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Sport</th>
+        <th>Team</th>
+        <th>Position</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @colleagues.each do |colleague| %>
+        <% if colleague.user == current_user %>
+        <tr>
+          <td>
+            <%= link_to colleague.first_name + ' ' + colleague.last_name, colleague, class:"btn btn-outline-success" %> 
+          </td>
+          <td><%= colleague.sport %></td>
+          <td><%= colleague.team %></td>
+          <td><%= colleague.position %></td>
+          <td><%= colleague.email %></td>
+          <td><%= colleague.phone %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+      
+    </div>
+  </div>
+
+
+
+
+
+  <br>
+
+  <%= link_to 'Add Colleague', new_colleague_path, class: "btn btn-outline-dark" %>
+<%# New homepage, old homepage at views/home/index.html.erb%>
+
+<% else %>
+
+  <div class="card">
+    <div class="card-header bg-success text-light">
+      <h1>Welcome To Teamsters!</h1>
+    </div>
+    <div class="card-body text-success">
+      <p>Recreational Organisation made easy.</p>
+      
+      <%= image_tag("pics/basketball")%>
+    <br/>
+      <p>Our database gives you ease of use and a complete digital rolodex to plan your next game!</p>
+
+      <%= image_tag("pics/cricket")%>
+    <br/>
+      <p>Let's win together!</p>
+
+    </div>
+  </div>
+
+
+
+
+
+<% end %>

@@ -1,0 +1,18 @@
+<div class="jumbotron bg-light text-success">
+  <h1 class="display-4"><%= @colleague.first_name %> <%= @colleague.last_name %></h1>
+  <p class="lead">
+  <%= @colleague.sport %>  |
+  <%= @colleague.team %>  |
+  <%= @colleague.position %>  |
+  <%= @colleague.email %>  |
+  <%= @colleague.phone %>
+  </p>
+  <br/>
+  <%= link_to 'Edit', edit_colleague_path(@colleague), class:"btn btn-outline-dark" %> 
+  <%= link_to 'Back', colleagues_path, class:"btn btn-outline-dark" %>
+  <%= link_to 'Delete', @colleague, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger",class:"btn btn-danger" %>
+
+  <br/>
+</div>
+
+

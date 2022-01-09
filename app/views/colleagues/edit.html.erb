@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Editing Colleague</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'form', colleague: @colleague %>
+
+    <br/>
+    <%= link_to 'Show', @colleague, class:"btn btn-outline-dark" %> 
+    <%= link_to 'Back', colleagues_path, class:"btn btn-outline-danger" %>
+    <%= link_to 'Delete', @colleague, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger",class:"btn btn-danger" %>
+
+  </div>
+</div>
+
+
+
+
